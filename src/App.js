@@ -1,36 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
-import axios from 'axios';
+import emailjs from 'emailjs-com'
+import React , {useRef} from 'react';
 
 function App() {
-  const sendMail =()=>{
-    axios({
-      method: 'post',
-      url: `https://app.mailgun.com/app/sending/domains/sandbox5893805579134310b6a59974a51f81e5.mailgun.org/messages`,
-      auth: {
-          username: 'api',
-          password: "fa6701d05bfa1189ecea6b8d55f3cd31-4f207195-73a961da"
-      },
-      params: {
-          from: 'Rahul Sandbox <postmaster@sandbox5893805579134310b6a59974a51f81e5.mailgun.org>',
-          to: "faaltukaamk@gmail.com",
-          subject: 'Hello',
-          text: 'Welcome to the team!'
-      }
-  }).then(
-      response => {
-          console.log(response)
-      },
-      reject => {
-          console.log(reject)
-      }
-  )
-  }
+  const form = useRef();
+  
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm("service_mlnhk8a","template_czehp1f", form.current, "gna_OGLQ8is6lv4DQ")
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
 	
   return (
     <div className="App">
-      hello
-      <button onClick = {()=> sendMail()}>send</button>
+      <form ref={form} onSubmit={sendEmail}>
+      <label>Name</label>
+      <input type="text" name="user_name" />
+      <label>Phone</label>
+      <input type="number" name="user_phone" />
+      <label>Email</label>
+      <input type="email" name="user_email" />
+      <label>Message</label>
+      <textarea name="message" />
+      <input type="submit" value="Send" />
+    </form>
     </div>
   );
 }
