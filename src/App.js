@@ -1,34 +1,41 @@
-import './App.css';
-import emailjs from 'emailjs-com'
-import React , {useRef} from 'react';
-
+import "./App.css";
+import emailjs from "emailjs-com";
+import React, { useRef } from "react";
+import {
+  Navbar,
+  Container,
+  Nav,
+  InputGroup,
+  FormLabel,
+  Form,
+  Button,
+} from "react-bootstrap";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Components/Home/Home";
 function App() {
-  const form = useRef();
-  
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs.sendForm("service_mlnhk8a","template_czehp1f", form.current, "gna_OGLQ8is6lv4DQ")
-      .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
-      });
-  };
-	
   return (
     <div className="App">
-      <form ref={form} onSubmit={sendEmail}>
-      <label>Name</label>
-      <input type="text" name="user_name" />
-      <label>Phone</label>
-      <input type="number" name="user_phone" />
-      <label>Email</label>
-      <input type="email" name="user_email" />
-      <label>Message</label>
-      <textarea name="message" />
-      <input type="submit" value="Send" />
-    </form>
+      <>
+        <Navbar bg="dark" variant="dark">
+          <Container>
+            <Navbar.Brand href="#home">
+              <span>Talent Stariner</span>
+            </Navbar.Brand>
+            <Nav className="me-auto">
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/about">About</Nav.Link>
+              <Nav.Link href="/courses">Our Courses</Nav.Link>
+            </Nav>
+          </Container>
+        </Navbar>
+      </>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="about" element={<Home />} />
+          <Route path="courses" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
