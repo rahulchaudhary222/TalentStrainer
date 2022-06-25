@@ -48,7 +48,7 @@ const Home = () => {
         <img src={img} alt="img"></img>
         <div className="dhooan" style={{ margin: "10px 20px" }}>
           <h3>{heading}</h3>
-          <span>{text}</span>
+          <span className="desktopOnly">{text}</span>
         </div>
       </div>
     );
@@ -77,7 +77,10 @@ const Home = () => {
         </div>
       </div>
       <div className="bbblack">
-        <div style={{ padding: "20px" }}>
+        <h3 style={{ padding: "10px 0 0 0" }}>
+          Technologies that you will master
+        </h3>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <SmCard
             img="https://cdn-icons-png.flaticon.com/512/732/732212.png"
             heading="HTML"
@@ -93,6 +96,32 @@ const Home = () => {
             text="CSS is the language we use to style an HTML document ,
             CSS describes how HTML elements should be displayed ,
             Our faculty will teach you CSS from basic to advanced."
+          />
+          <SmCard
+            img="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+            heading="Java Script"
+            text="JavaScript is the world's most popular programming language ,
+            JavaScript is the programming language of the Web ,
+            JavaScript is easy to learn ,
+            Our faculty will teach you the core basics of JavaScript from basic to advanced"
+          />
+          <SmCard
+            img="http://assets.stickpng.com/images/584830f5cef1014c0b5e4aa1.png"
+            heading="React"
+            text="React is a JavaScript library for building user interfaces ,
+            React is used to build single-page applications ,
+            React allows us to create reusable UI components , Our main focus will be on react"
+          />
+          <SmCard
+            img="http://assets.stickpng.com/images/5848309bcef1014c0b5e4a9a.png"
+            heading="Redux"
+            text="Redux is a predictable state container for JavaScript apps. As the application grows, it becomes difficult to keep it organized and maintain data flow. Redux solves this problem by managing application’s state with a single global object called Store. Redux fundamental principles help in maintaining consistency throughout your application, which makes debugging and testing easier."
+          />
+          <SmCard
+            img="https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU"
+            heading="Github"
+            text="GitHub is a code hosting platform for collaboration and version control , 
+            GitHub lets you (and others) work together on projects , Our faculty teach you the all github processes & commands you will need during your work"
           />
         </div>
       </div>

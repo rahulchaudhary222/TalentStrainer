@@ -26,12 +26,13 @@
 }
 .cardbig {
   width: 300px;
+  margin-bottom: 20px;
 }
 
 .cardbig img {
   width: 300px;
   height: 200px;
-  background-color: aqua;
+  background-color: rgb(255, 255, 255);
   margin-bottom: 20px;
 }
 .cardsm {
@@ -62,6 +63,9 @@
   display: inline-block;
   opacity: 0;
   filter: blur(4px);
+}
+.desktopOnly {
+  display: inline-block;
 }
 
 .dhooan span:nth-child(1) {
@@ -140,5 +144,13 @@
   100% {
     opacity: 1;
     filter: blur(0);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .desktopOnly {
+    display: none;
+    visibility: hidden;
+    /* background-color: aquamarine; */
   }
 }
