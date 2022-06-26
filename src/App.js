@@ -12,6 +12,7 @@ import {
 } from "react-bootstrap";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home/Home";
+import Logo from "./Components/Images/logo.png";
 function App() {
   return (
     <div className="App">
