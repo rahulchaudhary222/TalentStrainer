@@ -87,14 +87,7 @@ const Home = () => {
   };
   const CardShadow = ({ text }) => {
     return (
-      <div
-        style={{
-          boxShadow: "0 0 20px 8px #d0d0d0",
-          padding: "10px",
-          borderRadius: "50px",
-          margin: "20px",
-        }}
-      >
+      <div className="messagesContainer">
         <span>{text}</span>
       </div>
     );
@@ -309,17 +302,17 @@ const Home = () => {
           alt="img"
         /> */}
         <img
-          style={{ width: "90px", margin: "30px" }}
+          className="mediaIcon"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"
           alt="img"
         />
         <img
-          style={{ width: "90px", margin: "30px" }}
+          className="mediaIcon"
           src="https://seeklogo.com/images/F/facebook-icon-circle-logo-09F32F61FF-seeklogo.com.png"
           alt="img"
         />
         <img
-          style={{ width: "90px", margin: "30px" }}
+          className="mediaIcon"
           src="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_youtube-512.png"
           alt="img"
         />

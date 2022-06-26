@@ -36,7 +36,6 @@
   margin-bottom: 20px;
 }
 .cardsm {
-  height: 120px;
   text-align: left;
   margin: 20px;
 }
@@ -147,17 +146,10 @@
   }
 }
 
-@media screen and (max-width: 600px) {
-  .desktopOnly {
-    display: none;
-    visibility: hidden;
-    /* background-color: aquamarine; */
-  }
-}
-
 .fixed-bg {
   background-image: url("https://studywebdevelopment.com/images/web-development-101-facebook.jpg");
-  min-height: 500px;
+  min-height: 200px;
+  min-width: 100px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -165,6 +157,7 @@
 }
 .companyLogo {
   height: 150px;
+  margin: 10px;
 }
 .myform {
   width: 45%;
@@ -182,4 +175,48 @@
 .errorMsg {
   color: #ff0000;
   padding: 10px;
+}
+.mediaIcon {
+  width: 90px;
+  margin: 30px;
+}
+.messagesContainer {
+  box-shadow: 0 0 20px 8px #d0d0d0;
+  padding: 10px;
+  border-radius: 50px;
+  margin: 20px;
+}
+@media screen and (max-width: 600px) {
+  .desktopOnly {
+    /* visibility: hidden; */
+    font-size: 10px;
+  }
+  .myform {
+    width: 100%;
+  }
+  .mediaIcon {
+    width: 40px;
+    margin: 10px;
+  }
+  .companyLogo {
+    height: 70px;
+    margin: 10px;
+  }
+  .messagesContainer {
+    box-shadow: 0 0 10px 4px #d0d0d0;
+    padding: 5px;
+    border-radius: 50px;
+    margin: 8px;
+    font-size: 10px;
+  }
+  .cardsm {
+    text-align: left;
+    margin: 4px;
+  }
+  .bbblack {
+    padding: 0;
+  }
+  .dhooan h3 {
+    font-size: 15px;
+  }
 }
