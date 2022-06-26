@@ -53,6 +53,34 @@ const Home = () => {
       </div>
     );
   };
+  const CardWithBackImg = ({ img, heading, text1, text2 }) => {
+    return (
+      <div className="cardsm" style={{ backgroundImage: `url(${img})` }}>
+        <div
+          className="dhooan"
+          style={{ margin: "10px 20px", textAlign: "center" }}
+        >
+          <h3>{heading}</h3>
+          <span style={{ display: "block" }}>{text1}</span>
+          <span style={{ display: "block" }}>{text2}</span>
+        </div>
+      </div>
+    );
+  };
+  const CardShadow = ({ text }) => {
+    return (
+      <div
+        style={{
+          boxShadow: "0 0 20px 8px #d0d0d0",
+          padding: "10px",
+          borderRadius: "50px",
+          margin: "20px",
+        }}
+      >
+        <span>{text}</span>
+      </div>
+    );
+  };
   return (
     <div>
       <div className="bbgradient">
@@ -65,7 +93,7 @@ const Home = () => {
             aspiring IT Professionals"
           />
           <Card
-            img="https://www.tbsnews.net/sites/default/files/styles/big_3/public/images/2020/07/12/online-class.png?itok=8x33zwrQ"
+            img="https://elearningindustry.com/wp-content/uploads/2016/06/9-ways-creating-effective-online-training-strategy-employees.png"
             heading="Online Training"
             text="Classroom Type Enviroment provided classes online on best available platforms by the same faculty as Classroom Programme"
           />
@@ -113,7 +141,7 @@ const Home = () => {
             React allows us to create reusable UI components , Our main focus will be on react"
           />
           <SmCard
-            img="http://assets.stickpng.com/images/5848309bcef1014c0b5e4a9a.png"
+            img="https://raw.githubusercontent.com/reduxjs/redux/master/logo/logo.png"
             heading="Redux"
             text="Redux is a predictable state container for JavaScript apps. As the application grows, it becomes difficult to keep it organized and maintain data flow. Redux solves this problem by managing application’s state with a single global object called Store. Redux fundamental principles help in maintaining consistency throughout your application, which makes debugging and testing easier."
           />
@@ -125,7 +153,42 @@ const Home = () => {
           />
         </div>
       </div>
-      <div style={{ width: "50%" }}>
+      <div class="fixed-bg"></div>
+      <div>
+        <h1>OUR UNIQUE APPROACH FOR STUDENT SUCCESS</h1>
+        <p>
+          Our Approach for technology Training recognizes critical IT Skills
+          that provide early and mid-career professionals opportunities to excel
+          in their Careers. The Course curriculum is designed considering key
+          and emerging technologies and is advised by Industry Experts. The
+          course enables raw Freshers to be industry-ready.
+        </p>
+      </div>
+      <div className="bbblack ">
+        <CardWithBackImg
+          img=""
+          heading="Placement"
+          text1="100% PLACEMENT GUARANTEE"
+          text2="#PayAfterPlacement"
+        />
+        <div className="flex">
+          <CardShadow text="Interview Q&A Provided which are frequently asked in Companies" />
+          <CardShadow text="Real Time Examples provided To Crack your Interviews" />
+          <CardShadow text="We Provide live Projects for practice" />
+          <CardShadow text="100% job assistance & assurance" />
+          <CardShadow text="Backup classes for missed sessions" />
+          <CardShadow text="Our Placement Team will schedule Interviews till you get placed" />
+          <CardShadow text="Schedule mock exams & mock interviews" />
+          <CardShadow text="Our Experienced Trainers will help you to prepare Resume as per MNC’S Standards" />
+          <CardShadow text="Carrier Counselling" />
+        </div>
+      </div>
+      <div>
+        <h2>Our Mentors & Alumni Working In</h2>
+        <h2>(30+ Companies)</h2>
+        <div className="flex"></div>
+      </div>
+      <div>
         <Form ref={form} onSubmit={sendEmail}>
           <Form.Group className="mb-3">
             <Form.Label>Name</Form.Label>
