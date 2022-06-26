@@ -23,7 +23,7 @@ function App() {
             </Navbar.Brand>
             <Nav className="me-auto">
               <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/about">About</Nav.Link>
+              <Nav.Link href="/ContactUs">Contact Us</Nav.Link>
             </Nav>
           </Container>
         </Navbar>
@@ -31,7 +31,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="about" element={<Home />} />
+          <Route path="ContactUs" element={<Home />} />
           <Route path="courses" element={<Home />} />
         </Routes>
       </BrowserRouter>

@@ -163,3 +163,23 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.companyLogo {
+  height: 150px;
+}
+.myform {
+  width: 45%;
+  background-image: url("https://thumbs.dreamstime.com/b/contact-us-customer-support-hotline-people-connect-call-customer-support-contact-us-customer-support-hotline-people-connect-call-129786983.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  padding: 20px;
+}
+.SocialMedia {
+  display: "flex";
+  justify-content: center;
+}
+.errorMsg {
+  color: #ff0000;
+  padding: 10px;
+}

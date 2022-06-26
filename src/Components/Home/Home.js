@@ -1,5 +1,5 @@
 import emailjs from "emailjs-com";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Navbar,
   Container,
@@ -10,12 +10,23 @@ import {
   Button,
 } from "react-bootstrap";
 import "./Home.css";
+import ReactImg from "../Images/React.png.png";
+import ReduxImg from "../Images/Redux.png";
+import HoneywellImg from "../Images/HomeyWell.jpg";
+import byjusImg from "../Images/ByjusImg.png";
+import OracleImg from "../Images/oracle.png";
+import GoldmanImg from "../Images/goldman.png";
+import PwcImg from "../Images/pwc.png";
+import Loading from "../loading/loading";
+import ThanksImg from "../Images/thanks.png";
 
 const Home = () => {
   const form = useRef();
-
+  const [loading, setloading] = useState(false);
+  const [formFilled, setformFilled] = useState(false);
+  const [errors, seterrors] = useState([]);
   const sendEmail = (e) => {
-    e.preventDefault();
+    setloading(true);
 
     emailjs
       .sendForm(
@@ -27,11 +38,18 @@ const Home = () => {
       .then(
         (result) => {
           console.log(result.text);
+          setloading(false);
+          setformFilled(true);
         },
         (error) => {
           console.log(error.text);
+          setloading(false);
         }
-      );
+      )
+      .catch((err) => {
+        console.log(err);
+        setloading(false);
+      });
   };
   const Card = ({ img, heading, text }) => {
     return (
@@ -80,6 +98,32 @@ const Home = () => {
         <span>{text}</span>
       </div>
     );
+  };
+  useEffect(() => {
+    console.log(errors);
+  }, [errors]);
+  const Validate = (e) => {
+    let ok = true;
+    seterrors([]);
+    e.preventDefault();
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    var phoneformat = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+    if (form?.current.user_name.value.trim() == "") {
+      seterrors((state) => [...state, "name"]);
+      ok = false;
+    }
+    if (!form?.current.user_email.value.match(mailformat)) {
+      seterrors((state) => [...state, "email"]);
+      ok = false;
+    }
+    if (!form?.current.user_phone.value.match(phoneformat)) {
+      seterrors((state) => [...state, "phone"]);
+      ok = false;
+    }
+
+    if (ok) {
+      sendEmail();
+    }
   };
   return (
     <div>
@@ -134,14 +178,14 @@ const Home = () => {
             Our faculty will teach you the core basics of JavaScript from basic to advanced"
           />
           <SmCard
-            img="http://assets.stickpng.com/images/584830f5cef1014c0b5e4aa1.png"
+            img={ReactImg}
             heading="React"
             text="React is a JavaScript library for building user interfaces ,
             React is used to build single-page applications ,
             React allows us to create reusable UI components , Our main focus will be on react"
           />
           <SmCard
-            img="https://raw.githubusercontent.com/reduxjs/redux/master/logo/logo.png"
+            img={ReduxImg}
             heading="Redux"
             text="Redux is a predictable state container for JavaScript apps. As the application grows, it becomes difficult to keep it organized and maintain data flow. Redux solves this problem by managing application’s state with a single global object called Store. Redux fundamental principles help in maintaining consistency throughout your application, which makes debugging and testing easier."
           />
@@ -185,48 +229,102 @@ const Home = () => {
       </div>
       <div>
         <h2>Our Mentors & Alumni Working In</h2>
-        <h2>(30+ Companies)</h2>
-        <div className="flex"></div>
+        <h2>(30+ Companies) Like</h2>
+        <div className="flex" style={{ margin: "0 0 40px 0" }}>
+          <img src={HoneywellImg} alt="img" className="companyLogo"></img>
+          <img src={byjusImg} alt="img" className="companyLogo"></img>
+          <img src={OracleImg} alt="img" className="companyLogo"></img>
+          <img src={GoldmanImg} alt="img" className="companyLogo"></img>
+          <img src={PwcImg} alt="img" className="companyLogo"></img>
+        </div>
       </div>
-      <div>
-        <Form ref={form} onSubmit={sendEmail}>
-          <Form.Group className="mb-3">
-            <Form.Label>Name</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter Name"
-              name="user_name"
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Enter email"
-              name="user_email"
-            />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Phone</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="Enter Phone Number"
-              name="user_phone"
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Message</Form.Label>
-            <Form.Control type="text" placeholder="Query" name="message" />
-          </Form.Group>
 
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
+      {!formFilled && (
+        <div className="flex" style={{ backgroundColor: "black" }}>
+          <div className="myform">
+            <h2>Contact Us</h2>
+            <Form ref={form} onSubmit={Validate}>
+              <Form.Group className="mb-3">
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  style={
+                    errors.includes("name") ? { border: "4px solid red" } : {}
+                  }
+                  type="text"
+                  placeholder="Enter Name"
+                  name="user_name"
+                />
+                {errors.includes("name") && (
+                  <span className="errorMsg">Name is Required</span>
+                )}
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  style={
+                    errors.includes("email") ? { border: "4px solid red" } : {}
+                  }
+                  type="email"
+                  placeholder="Enter email"
+                  name="user_email"
+                />
+                {errors.includes("email") && (
+                  <span className="errorMsg">Enter A Valid Email</span>
+                )}
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Phone</Form.Label>
+                <Form.Control
+                  style={
+                    errors.includes("phone") ? { border: "4px solid red" } : {}
+                  }
+                  type="number"
+                  placeholder="Enter Phone Number"
+                  name="user_phone"
+                />
+                {errors.includes("phone") && (
+                  <span className="errorMsg">Enter Valid Phone Number</span>
+                )}
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Message</Form.Label>
+                <Form.Control type="text" placeholder="Query" name="message" />
+              </Form.Group>
+
+              {!loading && (
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+              )}
+              {loading && <Loading />}
+            </Form>
+          </div>
+        </div>
+      )}
+      {formFilled && <img src={ThanksImg} alt="img" />}
+      <div className="SocialMedia">
+        {/* <img
+          style={{ width: "90px", margin: "30px" }}
+          src="https://cdn-icons-png.flaticon.com/512/281/281769.png"
+          alt="img"
+        /> */}
+        <img
+          style={{ width: "90px", margin: "30px" }}
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"
+          alt="img"
+        />
+        <img
+          style={{ width: "90px", margin: "30px" }}
+          src="https://seeklogo.com/images/F/facebook-icon-circle-logo-09F32F61FF-seeklogo.com.png"
+          alt="img"
+        />
+        <img
+          style={{ width: "90px", margin: "30px" }}
+          src="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_youtube-512.png"
+          alt="img"
+        />
       </div>
+      <div>© Talent Strainer Pvt. Ltd. All Right Reserved</div>
     </div>
   );
 };
