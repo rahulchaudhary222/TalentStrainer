@@ -19,6 +19,9 @@ import GoldmanImg from "../Images/goldman.png";
 import PwcImg from "../Images/pwc.png";
 import Loading from "../loading/loading";
 import ThanksImg from "../Images/thanks.png";
+import LocationGif from "../Images/location.gif";
+import PhoneGif from "../Images/phonegif.gif";
+import mailGif from "../Images/mailgif.gif";
 
 const Home = () => {
   const form = useRef();
@@ -294,13 +297,8 @@ const Home = () => {
           </div>
         </div>
       )}
-      {formFilled && <img src={ThanksImg} alt="img" />}
-      <div className="SocialMedia">
-        {/* <img
-          style={{ width: "90px", margin: "30px" }}
-          src="https://cdn-icons-png.flaticon.com/512/281/281769.png"
-          alt="img"
-        /> */}
+      {formFilled && <img src={ThanksImg} alt="img" className="thanks" />}
+      {/* <div className="SocialMedia">
         <img
           className="mediaIcon"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"
@@ -316,8 +314,27 @@ const Home = () => {
           src="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_youtube-512.png"
           alt="img"
         />
+      </div> */}
+      <div style={{ textAlign: "left" }}>
+        <div>
+          <img src={LocationGif} alt="gif" style={{ width: "80px" }}></img>
+          <span style={{ fontWeight: "500" }}>
+            Talent Stariner Pvt Ltd , Raya Road Sadabad Hathras , Uttar Pradesh
+            - 281306{" "}
+          </span>
+        </div>
+        <div>
+          <img src={PhoneGif} alt="gif" style={{ width: "80px" }}></img>
+          <span style={{ fontWeight: "500" }}> 08267049274 </span>
+
+          <span> (Mon to Fri, 11am to 5pm)</span>
+        </div>
+        <div>
+          <img src={mailGif} alt="gif" style={{ width: "80px" }}></img>
+          <span style={{ fontWeight: "500" }}> talentstrainer@gmail.com </span>
+        </div>
       </div>
-      <div>© Talent Strainer Pvt. Ltd. All Right Reserved</div>
+      <div>© Talent Strainer Pvt. Ltd. All Rights Reserved</div>
     </div>
   );
 };
