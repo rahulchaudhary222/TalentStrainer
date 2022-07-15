@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/TalentStrainer/static/css/main.598412e8.css",
+    "main.js": "/TalentStrainer/static/js/main.d1fdfb63.js",
+    "static/js/787.c9368ee1.chunk.js": "/TalentStrainer/static/js/787.c9368ee1.chunk.js",
+    "static/media/ByjusImg.png": "/TalentStrainer/static/media/ByjusImg.f360239365abe34f5c36.png",
+    "static/media/oracle.png": "/TalentStrainer/static/media/oracle.7b6fb144ad9e801badaa.png",
+    "static/media/Redux.png": "/TalentStrainer/static/media/Redux.c2d9e60e986125934cba.png",
+    "static/media/React.png.png": "/TalentStrainer/static/media/React.png.74c5061d22dc1403e0ea.png",
+    "static/media/mailgif.gif": "/TalentStrainer/static/media/mailgif.987dd010fc98f37cb4ff.gif",
+    "static/media/phonegif.gif": "/TalentStrainer/static/media/phonegif.19830708f4d39df303dd.gif",
+    "static/media/pwc.png": "/TalentStrainer/static/media/pwc.fe5f31e2bf31f4284993.png",
+    "static/media/thanks.png": "/TalentStrainer/static/media/thanks.b5b047c044f0fb3be972.png",
+    "static/media/location.gif": "/TalentStrainer/static/media/location.6b6e7537b41fdb92eb9a.gif",
+    "index.html": "/TalentStrainer/index.html",
+    "main.598412e8.css.map": "/TalentStrainer/static/css/main.598412e8.css.map",
+    "main.d1fdfb63.js.map": "/TalentStrainer/static/js/main.d1fdfb63.js.map",
+    "787.c9368ee1.chunk.js.map": "/TalentStrainer/static/js/787.c9368ee1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.598412e8.css",
+    "static/js/main.d1fdfb63.js"
+  ]
+}
