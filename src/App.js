@@ -29,14 +29,14 @@ function App() {
           </Container>
         </Navbar>
       </>
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/TalentStrainer" element={<Home />} />
           <Route path="ContactUs" element={<Home />} />
           <Route path="courses" element={<Home />} />
         </Routes>
-      </BrowserRouter> */}
-      <Home />
+      </BrowserRouter>
     </div>
   );
 }
